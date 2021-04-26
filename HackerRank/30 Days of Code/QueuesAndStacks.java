@@ -10,8 +10,8 @@ import java.util.Stack;
 
 public class QueuesAndStacks {
     static class Solution {
-        Stack<Character> stack = new Stack<Character>();
-        Queue<Character> queue = new LinkedList<Character>();
+        Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
 
         void pushCharacter(char ch) {
             stack.push(ch);
@@ -61,3 +61,4 @@ public class QueuesAndStacks {
                 + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
     }
 }
+// hehe xd
