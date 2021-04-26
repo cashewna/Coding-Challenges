@@ -61,4 +61,3 @@ public class QueuesAndStacks {
                 + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
     }
 }
-// hehe xd
