@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * Day 1: <br>
+ * Add int variables, double variables, and concatenate Strings
+ */
+
 public class DataTypes {
 
   public static void main(String[] args) {
