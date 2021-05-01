@@ -5,7 +5,6 @@ import java.util.Scanner;
  * If n is odd print Weird. <br>
  * If n is even and in the inclusive range of 6 to 20 print Weird. <br>
  * If n is even and greater than 20 print Not Weird. <br>
- * .
  */
 public class ConditionalStatementsIntro {
 
