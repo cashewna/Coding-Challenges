@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /** Print out each move and the minimum number of moves. */
-public class TowerOfHanoi {
+public class TowersOfHanoi {
   int counter = 0;
 
   public int getCounter() {
@@ -19,7 +19,7 @@ public class TowerOfHanoi {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    TowerOfHanoi tower1 = new TowerOfHanoi();
+    TowersOfHanoi tower1 = new TowersOfHanoi();
     int disks = scanner.nextInt();
 
     tower1.towerOfHanoi(disks, 'A', 'B', 'C');
