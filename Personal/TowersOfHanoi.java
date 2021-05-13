@@ -8,12 +8,12 @@ public class TowersOfHanoi {
     return counter;
   }
 
-  public void towerOfHanoi(int disks, char source, char aux, char destination) {
-    if (disks > 0) {
-      towerOfHanoi(disks - 1, source, destination, aux);
+  public void towerOfHanoi(int n, char start, char other, char end) {
+    if (n > 0) {
+      towerOfHanoi(n - 1, start, end, other);
       counter++;
-      System.out.println("Move disk " + disks + " from " + source + " to " + destination);
-      towerOfHanoi(disks - 1, aux, source, destination);
+      System.out.println("Move disk " + n + " from " + start + " to " + end);
+      towerOfHanoi(n - 1, other, start, end);
     }
   }
 
