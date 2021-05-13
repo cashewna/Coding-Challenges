@@ -12,7 +12,7 @@ public class TowerOfHanoi {
     if (disks > 0) {
       towerOfHanoi(disks - 1, source, destination, aux);
       counter++;
-      System.out.println("Move disk " + disks + " from " + source + " to" + destination);
+      System.out.println("Move disk " + disks + " from " + source + " to " + destination);
       towerOfHanoi(disks - 1, aux, source, destination);
     }
   }
