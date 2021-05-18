@@ -45,7 +45,6 @@ public class Main {
       }
     } catch (FileNotFoundException e) {
       System.out.println("Friend file \"" + friendFileName + ".txt\" not found. Please try again.");
-
     }
 
     // Test Code Here
@@ -57,7 +56,18 @@ public class Main {
     System.out.println("Get vertex index \"Wallace\": " + g.getVertexIndex("Wallace"));
     System.out.println("Wallace's Friend List: ");
     g.printFriendsList(g, "Wallace");
-    System.out.println("Wallace's Friends and Friends of Friends List: ");
-    g.printFriendsAndFriendsOfFriendsList(g, "Wallace");
+    System.out.println("Batman's Friends and Friends of Friends List: ");
+    g.setUser1("Batman");
+    g.printFriendsAndFriendsOfFriendsList(g, "Batman");
+    System.out.println("Mutual friends: ");
+    g.printMutualFriends(g, "Wallace", "Gromit");
+    g.deletePerson(g, "Wallace");
+    System.out.println("Label at 0: " + g.getLabel(0));
+    System.out.println("Label at 1: " + g.getLabel(1));
+    System.out.println("Label at 2: " + g.getLabel(2));
+    System.out.println("Label at 3: " + g.getLabel(3));
+    System.out.println("Label at 4: " + g.getLabel(4));
+    System.out.println("Label at 5: " + g.getLabel(5));
+    g.printFriendsList(g, "Wallace");
   }
 }

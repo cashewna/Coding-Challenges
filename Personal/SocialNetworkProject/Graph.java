@@ -4,6 +4,7 @@ public class Graph implements Cloneable {
 
   protected boolean[][] edges;
   protected Object[] labels;
+  protected Object user1;
 
   /**
    * Parametrised constructor to create a new graph with n vertices, no edges, and null labels.
@@ -17,6 +18,10 @@ public class Graph implements Cloneable {
 
   /** Default constructor */
   public Graph() {}
+
+  public void setUser1(Object user1) {
+    this.user1 = user1;
+  }
 
   /**
    * Adds a directed edge between two vertices.
@@ -89,11 +94,14 @@ public class Graph implements Cloneable {
     int nextNeighbour;
 
     marked[v] = true;
-    System.out.println(g.getLabel(v));
+
+    if (!getLabel(v).equals(user1)) {
+      System.out.println(g.getLabel(v));
+    }
 
     // Traverse all the neighbours, looking for unmarked vertices:
-    for (int i = 0; i < connections.length; i++) {
-      nextNeighbour = connections[i];
+    for (int connection : connections) {
+      nextNeighbour = connection;
       if (!marked[nextNeighbour]) {
         depthFirstRecurse(g, nextNeighbour, marked);
       }
@@ -108,7 +116,13 @@ public class Graph implements Cloneable {
    * @exception ArrayIndexOutOfBoundsException Indicates that vertex is invalid.
    */
   public Object getLabel(int vertex) {
-    return labels[vertex];
+    try {
+      return labels[vertex];
+    } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println(
+          "Vertex " + vertex + " is invalid. Vertex is outside the range of given inputs.");
+    }
+    return null;
   }
 
   /**
@@ -183,6 +197,7 @@ public class Graph implements Cloneable {
 
   /**
    * Get Vertex Index
+   *
    * @param label Label to get vertex index from.
    * @return Number of vertex corresponding specified label.
    */
