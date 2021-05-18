@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Java class to implement Graph
+ * Java class to implement Generic Graph
  *
  * @param <T> Allows generic usage
  */
 class Graph<T> {
   // Use HashMap to store edges in graph.
-  private Map<T, List<T>> map = new HashMap<>();
+  Map<T, List<T>> map = new HashMap<>();
 
   public void addVertex(T s) {
     map.put(s, new LinkedList<>());

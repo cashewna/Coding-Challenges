@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/HackerRank/30 Days of Code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Personal" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LeetCode" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Personal/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
