@@ -68,7 +68,7 @@ public class Graph implements Cloneable {
    * @throws OutOfMemoryError Indicates insufficient memory for an array of boolean used by this
    *     method.
    */
-  public static void depthFirstPrint(Graph g, int start) {
+  public void depthFirstPrint(Graph g, int start) {
     boolean[] marked = new boolean[g.getSize()];
 
     depthFirstRecurse(g, start, marked);
@@ -84,18 +84,19 @@ public class Graph implements Cloneable {
    * @throws ArrayIndexOutOfBoundsException Indicates that the current vertex does not exist, or
    *     marked[] was the wrong size.
    */
-  public static void depthFirstRecurse(Graph g, int v, boolean[] marked) {
+  public void depthFirstRecurse(Graph g, int v, boolean[] marked) {
     int[] connections = g.neighbours(v);
-    int i;
     int nextNeighbour;
 
     marked[v] = true;
     System.out.println(g.getLabel(v));
 
     // Traverse all the neighbours, looking for unmarked vertices:
-    for (i = 0; i < connections.length; i++) {
+    for (int i = 0; i < connections.length; i++) {
       nextNeighbour = connections[i];
-      if (!marked[nextNeighbour]) depthFirstRecurse(g, nextNeighbour, marked);
+      if (!marked[nextNeighbour]) {
+        depthFirstRecurse(g, nextNeighbour, marked);
+      }
     }
   }
 

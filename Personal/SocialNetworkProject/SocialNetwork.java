@@ -1,11 +1,8 @@
 package SocialNetworkProject;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-
 public class SocialNetwork extends Graph {
+  int depth = 0;
+  int size;
   /**
    * Constructor to create a new graph with n vertices, no edges, and null labels.
    *
@@ -33,23 +30,22 @@ public class SocialNetwork extends Graph {
   public void printFriendsList(Graph g, Object label) {
     int[] friends = g.neighbours(g.getVertexIndex(label));
     for (Integer o : friends) {
-
       System.out.println("- " + g.getLabel(o));
     }
   }
 
   public void printFriendsAndFriendsOfFriendsList(Graph g, Object label) {
-//    printFriendsList(g, label);
+    size = g.getSize();
     int[] buddies = g.neighbours(g.getVertexIndex(label));
     for (Integer o : buddies) {
       System.out.println("  Friends of " + g.getLabel(o) + ":");
 
-      if (!o.equals(label)) {
-        printFriendsList(g, g.getLabel(o));
-      }
+//      if (!o.equals(g.getLabel(o))) {
+//        printFriendsList(g, g.getLabel(o));
+//      }
+
+
+
     }
-
   }
-
-
 }
