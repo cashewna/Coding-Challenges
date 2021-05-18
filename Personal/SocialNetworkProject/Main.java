@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) throws FileNotFoundException {
     Scanner sc = new Scanner(System.in);
+    int k; // Menu switch
     int graphSize;
     String friendFileName;
     String indexFileName;
@@ -47,27 +48,60 @@ public class Main {
       System.out.println("Friend file \"" + friendFileName + ".txt\" not found. Please try again.");
     }
 
-    // Test Code Here
-    System.out.println("Size: " + g.getSize());
-    System.out.println("Label at 0: " + g.getLabel(0));
-    System.out.println("Label at 1: " + g.getLabel(1));
-    System.out.println("Label at 2: " + g.getLabel(2));
-    System.out.println("Label at 3: " + g.getLabel(3));
-    System.out.println("Get vertex index \"Wallace\": " + g.getVertexIndex("Wallace"));
-    System.out.println("Wallace's Friend List: ");
-    g.printFriendsList(g, "Wallace");
-    System.out.println("Batman's Friends and Friends of Friends List: ");
-    g.setUser1("Batman");
-    g.printFriendsAndFriendsOfFriendsList(g, "Batman");
-    System.out.println("Mutual friends: ");
-    g.printMutualFriends(g, "Wallace", "Gromit");
-    g.deletePerson(g, "Wallace");
-    System.out.println("Label at 0: " + g.getLabel(0));
-    System.out.println("Label at 1: " + g.getLabel(1));
-    System.out.println("Label at 2: " + g.getLabel(2));
-    System.out.println("Label at 3: " + g.getLabel(3));
-    System.out.println("Label at 4: " + g.getLabel(4));
-    System.out.println("Label at 5: " + g.getLabel(5));
-    g.printFriendsList(g, "Wallace");
+    do {
+    showMenu();
+    k = sc.nextInt();
+      sc.nextLine();
+      switch (k) {
+        case 1 -> {
+          System.out.println("Enter name of friend:");
+          String case1_input = sc.nextLine();
+          g.setUser1(case1_input);
+          System.out.println(case1_input + "'s friends and friends of friends:");
+          g.printFriendsAndFriendsOfFriendsList(g, case1_input);
+        }
+        case 2 -> {
+          System.out.println("Enter name of friend:");
+          String case2_input = sc.nextLine();
+          System.out.println(case2_input + "'s friends:");
+          g.printFriendsList(g, case2_input);
+        }
+        case 3 -> {
+          System.out.println("Choose two users:");
+          String case3_input = sc.nextLine();
+          String case3_input2 = sc.nextLine();
+          System.out.println(
+                  "Mutual friends between " + case3_input + " and " + case3_input2 + ":");
+          g.printMutualFriends(g, case3_input, case3_input2);
+        }
+        case 4 -> {
+          System.out.println("Enter person to delete from the network:");
+          String case4_input = sc.nextLine();
+          System.out.println("Are you sure about that? y/n");
+          String case4_input2 = sc.nextLine();
+          if (case4_input2.equals("y")) {
+            g.deletePerson(g, case4_input);
+          } else {
+            System.out.println("Returning to main menu...");
+          }
+        }
+        case 5 -> {
+          System.out.println("Listing all members by popularity...");
+          g.printPopularity(g);
+        }
+        case 6 -> System.out.println("Thank you for using this program. Goodbye!");
+      }
+    } while (k != 6);
+  }
+
+  public static void showMenu() {
+    System.out.println(
+            """
+                    1. List friends of the selected user and friends of friends.
+                    2. List friends of the selected user.
+                    3. List mutual friends between two users.
+                    4. Delete a member from the network.
+                    5. List all members sorted by popularity and names.
+                    6. Exit.""");
   }
 }
