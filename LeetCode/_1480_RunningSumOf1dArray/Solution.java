@@ -1,4 +1,5 @@
 package _1480_RunningSumOf1dArray;
+// Uses good coding practice not to change original variable values
 
 public class Solution {
   public int[] runningSum(int[] nums) {
