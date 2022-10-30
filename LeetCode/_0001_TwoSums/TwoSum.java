@@ -1,10 +1,10 @@
 package _0001_TwoSums;
+
 import java.util.HashMap;
-import java.util.Map;
 
 public class TwoSum {
   public int[] twoSum(int[] nums, int target) {
-    Map<Integer, Integer> map = new HashMap<>();
+    HashMap<Integer, Integer> map = new HashMap<>();
     for (int i = 0; i < nums.length; i++) {
       int complement = target - nums[i];
       if (map.containsKey(complement)) {
@@ -22,8 +22,8 @@ public class TwoSum {
 
     TwoSum example = new TwoSum();
     int[] answer = example.twoSum(nums, target);
-    for (int e : answer) {
-      System.out.print(e + " ");
+    for (int i : answer) {
+      System.out.print(i + " ");
     }
   }
 }
